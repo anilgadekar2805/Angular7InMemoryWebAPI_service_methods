@@ -1,0 +1,70 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div>
+
+<p *ngIf="dataSaved" ngClass="success">
+  <b>Record saved successfully </b>
+</p>
+<form [formGroup]="customerForm" (ngSubmit)="onFormSubmit()"> 
+  <table>
+      <tr>
+          <td> id :</td>
+          <td>
+            <input formControlName="custID">
+          </td>
+        </tr>
+    <tr>
+      <td> name :</td>
+      <td>
+        <input formControlName="name">
+      </td>
+    </tr>
+    <tr>
+      <td> city : </td>
+      <td>
+        <input formControlName="city">
+      </td>
+    </tr>
+    <tr>
+      <td> contact : </td>
+      <td>
+        <input formControlName="contact">
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <button [disabled]="customerForm.invalid">submit</button>
+      </td>
+    </tr>  
+  </table>
+
+</form>
+<button mat-button>Click me! 1</button>
+  <button mat-raised-button>Click me! 2</button>
+  <button mat-flat-button>Click me! 3</button>
+  <button mat-stroked-button>Click me! 4</button>
+  <button mat-icon-button>Click me! 5</button>
+  <button mat-fab>Click me! 6</button>
+  <button mat-mini-fab>click me 7</button>
+
+<h3>View of Customer Details</h3>
+  <table border="1">
+    <tr><th>CustID</th><th>name</th><th>city</th><th>contact</th></tr>
+    <tr *ngFor="let cust of allCustomerInfo|async">
+      <td>{{cust.custID}}</td><td>{{cust.name}}</td><td>{{cust.city}}</td><td>{{cust.contact}}</td>
+    </tr>
+  </table>
+<br>
+  
+<!-- <ul>
+  <li *ngFor="let cust of customersdetails">
+    ID:{{cust.custID}} name : {{cust.name}} city : {{cust.city}} contact: {{cust.contact}}
+  </li>
+</ul> -->
+
+
+<router-outlet></router-outlet>
